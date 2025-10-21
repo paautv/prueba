@@ -10,6 +10,7 @@ import PromoterList from "./components/PromoterList";
 import projectsJson from "./assets/data/projects.json";
 import projectDetailsJson from "./assets/data/projectDetails.json";
 import chartsJson from "./assets/data/charts.json";
+import favicon from "./assets/images/CROWMIE_Logo_Isotipo_Positivo.png";
 
 const App: React.FC = () => {
   const [project, setProject] = useState<any>(null);
@@ -18,6 +19,11 @@ const App: React.FC = () => {
   useEffect(() => {
     setProject(projectDetailsJson);
     setCharts(chartsJson.data);
+    document.title = "Crowmie";
+    const link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
+    if (link) {
+      link.href = favicon;
+    }
   }, []);
 
   if (!project) return <div>Cargando...</div>;
