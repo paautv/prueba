@@ -8,7 +8,7 @@ interface ProjectDescriptionProps {
 const ProjectDescription: React.FC<ProjectDescriptionProps> = ({ description }) => {
   return (
     <Box sx={{ mb: 3 }}>
-      <Typography variant="h6" gutterBottom>Descripción del proyecto</Typography>
+      <Typography variant="h5" gutterBottom>Descripción del proyecto</Typography>
       <Typography variant="body1" dangerouslySetInnerHTML={{ __html: description }} />
     </Box>
   );
