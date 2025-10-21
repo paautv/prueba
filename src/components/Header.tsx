@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ name, mainImage, price }) => {
     <Card sx={{ display: 'flex', mb: 6, minHeight: 250, border: 'none', boxShadow: 'none' }}>
       {/* Contenido izquierdo */}
       <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', p: 3 }}>
-        <Typography variant="h3" gutterBottom>{name}</Typography>
+        <Typography variant="h4" gutterBottom  sx={{ fontWeight: 'bold' }}>{name}</Typography>
         <Typography variant="h5">Monto a invertir:</Typography>
         <Typography variant="subtitle1" sx={{ mb: 4 }}>${price}</Typography>
         <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
