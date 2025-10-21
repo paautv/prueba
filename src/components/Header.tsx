@@ -9,15 +9,30 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ name, mainImage, price }) => {
   return (
-    <Card sx={{ display: 'flex', alignItems: 'center', p: 2, mb: 3 }}>
-      <img src={mainImage} alt={name} style={{ width: 120, height: 120, marginRight: 16, objectFit: 'cover', borderRadius: 8 }} />
-      <CardContent sx={{ flex: 1 }}>
-        <Typography variant="h5">{name}</Typography>
-        <Typography variant="subtitle1">Monto a invertir: ${price}</Typography>
+    <Card sx={{ display: 'flex', mb: 6, minHeight: 250, border: 'none', boxShadow: 'none' }}>
+      {/* Contenido izquierdo */}
+      <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', p: 3 }}>
+        <Typography variant="h3" gutterBottom>{name}</Typography>
+        <Typography variant="h5">Monto a invertir:</Typography>
+        <Typography variant="subtitle1" sx={{ mb: 4 }}>${price}</Typography>
+        <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+          <Button variant="contained" color="primary">Invertir</Button>
+          <Button variant="outlined" color="primary">LINK BSC</Button>
+        </Box>
       </CardContent>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-        <Button variant="contained" color="primary">Invertir</Button>
-        <Button variant="outlined" color="secondary">LINK BSC</Button>
+
+      {/* Contenido derecha */}
+      <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img
+          src={`https://api.crowmie.com/api/v1/assets/content/${mainImage}`}
+          alt={name}
+          style={{
+            width: '100%',
+            height: '100%',
+            maxHeight: 350,
+            objectFit: 'contain',
+          }}
+        />
       </Box>
     </Card>
   );
