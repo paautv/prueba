@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { Card, CardContent } from '@mui/material';
 import './App.css';
 import "leaflet/dist/leaflet.css";
 import Header from "./components/Header";
@@ -17,19 +17,28 @@ const App: React.FC = () => {
 
   useEffect(() => {
     setProject(projectDetailsJson);
-    setCharts(chartsJson.data); // Si tienes varios, filtra por proyecto si es necesario
+    setCharts(chartsJson.data);
   }, []);
 
   if (!project) return <div>Cargando...</div>;
 
   return (
-    <div style={{ padding: 20 }}>
-      <Header name={project.name} mainImage={project.mainImage} price={project.price} />
-      <ProjectDescription description={project.descriptions.es} />
-      <ProjectMap latitude={project.latitude} longitude={project.longitude} name={project.name} />
-      <PerformanceChart data={charts} />
-      <PromoterList promoters={project.promoters} />
-    </div>
+    <Card 
+      sx={{
+        mx: { xs: 1, sm: 3, md: 6, lg: 12 },
+        my: 3,
+        p: { xs: 1, sm: 3, md: 5 },
+        boxShadow: 3,
+      }}
+    >
+      <CardContent>
+        <Header name={project.name} mainImage={project.mainImage} price={project.price} />
+        <ProjectDescription description={project.descriptions.es} />
+        <ProjectMap latitude={project.latitude} longitude={project.longitude} name={project.name} />
+        <PerformanceChart data={charts} />
+        <PromoterList promoters={project.promoters} />
+      </CardContent>
+    </Card>
   );
 };
 
